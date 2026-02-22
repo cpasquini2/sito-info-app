@@ -3,245 +3,362 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Domestic Manager - Gestione Spese Casa</title>
+    <title>DOMESTIC MANAGER S.r.l.</title>
     <style>
-        * {
+        body {
+            font-family: "Times New Roman", Times, serif;
+            background-color: #f5f5f5;
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            line-height: 1.6;
             color: #333;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            padding: 20px;
         }
         
         .container {
-            max-width: 1200px;
+            width: 960px;
             margin: 0 auto;
-            background: white;
-            border-radius: 20px;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
-            overflow: hidden;
+            background-color: white;
+            border: 1px solid #ccc;
         }
         
+        /* Header stile industriale */
         header {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(to right, #8b0000, #a52a2a);
             color: white;
-            padding: 60px 40px;
-            text-align: center;
+            padding: 20px;
+            border-bottom: 3px solid #555;
+        }
+        
+        .logo {
+            font-size: 36px;
+            font-weight: bold;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+        
+        .logo span {
+            font-size: 18px;
+            display: block;
+            font-weight: normal;
+            letter-spacing: 1px;
+        }
+        
+        .tagline {
+            font-size: 14px;
+            color: #ffd700;
+            border-left: 3px solid #ffd700;
+            padding-left: 10px;
+            margin-top: 5px;
+        }
+        
+        /* Menu di navigazione */
+        nav {
+            background-color: #333;
+            padding: 10px;
+        }
+        
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        
+        nav ul li {
+            display: inline;
+            margin-right: 20px;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            text-transform: uppercase;
+            font-size: 12px;
+        }
+        
+        nav ul li a:hover {
+            color: #ff4444;
+        }
+        
+        /* Contenuto principale */
+        .content {
+            padding: 30px;
         }
         
         h1 {
-            font-size: 3.5em;
-            margin-bottom: 10px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
-        }
-        
-        .subtitle {
-            font-size: 1.3em;
-            opacity: 0.9;
-            margin-bottom: 30px;
-        }
-        
-        .app-badge {
-            display: inline-block;
-            background: rgba(255,255,255,0.2);
-            padding: 10px 25px;
-            border-radius: 50px;
-            font-size: 1.1em;
-            margin: 10px;
-            text-decoration: none;
-            color: white;
-            transition: all 0.3s;
-        }
-        
-        .app-badge:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
-        }
-        
-        .content {
-            padding: 60px 40px;
-        }
-        
-        .section {
-            margin-bottom: 50px;
+            color: #8b0000;
+            font-size: 24px;
+            border-bottom: 2px solid #8b0000;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
         }
         
         h2 {
-            font-size: 2.2em;
-            color: #667eea;
-            margin-bottom: 20px;
-            padding-bottom: 10px;
-            border-bottom: 3px solid #667eea;
+            color: #555;
+            font-size: 18px;
+            margin-top: 25px;
+            margin-bottom: 15px;
         }
         
         p {
-            font-size: 1.1em;
-            margin-bottom: 15px;
             line-height: 1.8;
-        }
-        
-        .features {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-top: 30px;
-        }
-        
-        .feature {
-            background: #f8f9fa;
-            padding: 30px;
-            border-radius: 15px;
-            border-left: 5px solid #667eea;
-            transition: transform 0.3s;
-        }
-        
-        .feature:hover {
-            transform: translateX(10px);
-        }
-        
-        .feature h3 {
-            color: #667eea;
             margin-bottom: 15px;
-            font-size: 1.5em;
+            text-align: justify;
         }
         
-        .contact-info {
-            background: #f8f9fa;
-            padding: 30px;
-            border-radius: 15px;
-            margin-top: 30px;
+        .highlight {
+            background-color: #fff5f5;
+            border-left: 4px solid #8b0000;
+            padding: 15px;
+            margin: 20px 0;
+        }
+        
+        /* Tabella prodotti/servizi */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        
+        th {
+            background-color: #8b0000;
+            color: white;
+            padding: 12px;
+            text-align: left;
+        }
+        
+        td {
+            padding: 10px;
+        }
+        
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        
+        /* Contatti */
+        .contacts {
+            background-color: #f0f0f0;
+            border: 1px solid #ddd;
+            padding: 20px;
+            margin: 30px 0;
         }
         
         .contact-item {
-            display: flex;
-            align-items: center;
-            margin-bottom: 15px;
-            font-size: 1.1em;
+            margin-bottom: 10px;
         }
         
-        .contact-icon {
-            width: 40px;
-            height: 40px;
-            background: #667eea;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-right: 15px;
-            color: white;
-            flex-shrink: 0;
+        .contact-label {
+            font-weight: bold;
+            color: #8b0000;
         }
         
+        /* Footer */
         footer {
-            background: #2d3748;
+            background-color: #333;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            font-size: 12px;
+            border-top: 3px solid #8b0000;
+        }
+        
+        footer p {
+            margin: 5px 0;
+        }
+        
+        .copyright {
+            font-size: 11px;
+            color: #aaa;
+            margin-top: 10px;
+        }
+        
+        /* Badge Google Play */
+        .app-badge {
+            display: inline-block;
+            background: #8b0000;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            font-weight: bold;
+            margin: 10px 0;
+            border: 2px solid #555;
+        }
+        
+        .app-badge:hover {
+            background: #a52a2a;
+        }
+        
+        /* Immagine placeholder stile industriale */
+        .placeholder-img {
+            background: linear-gradient(135deg, #8b0000 0%, #555 100%);
+            border: 2px solid #333;
             color: white;
             text-align: center;
-            padding: 30px;
-            font-size: 0.9em;
+            padding: 40px;
+            margin: 20px 0;
+            font-weight: bold;
+            letter-spacing: 1px;
         }
         
-        @media (max-width: 768px) {
-            h1 {
-                font-size: 2.5em;
-            }
-            
-            .content {
-                padding: 40px 20px;
-            }
-            
-            h2 {
-                font-size: 1.8em;
-            }
+        /* Citazione */
+        .quote {
+            font-style: italic;
+            border-left: 3px solid #8b0000;
+            padding-left: 15px;
+            margin: 20px 0;
+            color: #555;
         }
     </style>
 </head>
 <body>
     <div class="container">
+        <!-- Header -->
         <header>
-            <h1>🏠 Domestic Manager</h1>
-            <p class="subtitle">Gestione Spese Casa - Semplice, Intuitiva, Sicura</p>
-            <a href="https://play.google.com/store/apps/details?id=it.domesticmanager.app" class="app-badge">
-                📱 Scarica su Google Play
-            </a>
+            <div class="logo">
+                DOMESTIC MANAGER
+                <span>SOCIETÀ A RESPONSABILITÀ LIMITATA</span>
+            </div>
+            <div class="tagline">
+                SOLUZIONI INFORMATICHE PER LA GESTIONE DOMESTICA
+            </div>
         </header>
         
+        <!-- Menu di navigazione -->
+        <nav>
+            <ul>
+                <li><a href="#azienda">AZIENDA</a></li>
+                <li><a href="#prodotti">PRODOTTI</a></li>
+                <li><a href="#servizi">SERVIZI</a></li>
+                <li><a href="#contatti">CONTATTI</a></li>
+            </ul>
+        </nav>
+        
+        <!-- Contenuto principale -->
         <div class="content">
-            <div class="section">
-                <h2>Chi Siamo</h2>
-                <p>
-                    <strong>Domestic Manager</strong> è un'app italiana sviluppata per aiutarti a gestire 
-                    in modo semplice ed efficiente le spese di tutte le tue case. Che tu sia un proprietario 
-                    di seconde case, un amministratore condominiale, o semplicemente qualcuno che vuole tenere 
-                    tutto sotto controllo, Domestic Manager è la soluzione perfetta per te.
-                </p>
-                <p>
-                    La nostra missione è rendere la gestione domestica accessibile a tutti, con un'interfaccia 
-                    intuitiva e funzionalità pensate per risparmiare tempo e denaro.
-                </p>
+            <h1 id="azienda">CHI SIAMO</h1>
+            <p>
+                <strong>DOMESTIC MANAGER S.r.l.</strong> è un'azienda italiana specializzata nello sviluppo 
+                di soluzioni informatiche per la gestione domestica e condominiale. Fondata con l'obiettivo 
+                di portare l'efficienza del mondo industriale anche nella gestione delle abitazioni private, 
+                la nostra società si distingue per serietà, affidabilità e competenza tecnica.
+            </p>
+            <p>
+                Operiamo nel settore informatico con particolare attenzione alla qualità del software e 
+                all'assistenza clienti. La nostra filosofia aziendale si basa su principi di trasparenza, 
+                correttezza e rispetto delle normative vigenti.
+            </p>
+            
+            <div class="quote">
+                "La precisione nella gestione domestica è alla base del risparmio e dell'efficienza."
             </div>
             
-            <div class="section">
-                <h2>Cosa Offriamo</h2>
-                <div class="features">
-                    <div class="feature">
-                        <h3>✅ Gestione Multi-Casa</h3>
-                        <p>Aggiungi tutte le tue case. La prima è sempre gratuita!</p>
-                    </div>
-                    <div class="feature">
-                        <h3>💰 Piani Flessibili</h3>
-                        <p>Paga solo €2,44/mese per ogni casa aggiuntiva. Zero sorprese.</p>
-                    </div>
-                    <div class="feature">
-                        <h3>🔒 Sicurezza</h3>
-                        <p>Dati crittografati localmente e backup cloud sicuro.</p>
-                    </div>
-                    <div class="feature">
-                        <h3>📅 Promemoria</h3>
-                        <p>Mai più bollette dimenticate con i nostri promemoria automatici.</p>
-                    </div>
+            <h1 id="prodotti">I NOSTRI PRODOTTI</h1>
+            <p>
+                Presentiamo la nostra applicazione principale, sviluppata con tecnologie all'avanguardia 
+                ma concepita con la mentalità solida dell'industria italiana:
+            </p>
+            
+            <div class="placeholder-img">
+                [ IMMAGINE APPLICAZIONE DOMESTIC MANAGER ]
+            </div>
+            
+            <h2>DOMESTIC MANAGER - App per Dispositivi Mobili</h2>
+            <p>
+                Software completo per la gestione delle spese domestiche, bollette, scadenze e promemoria. 
+                Progettato per famiglie, proprietari di seconde case, amministratori condominiali e 
+                professionisti del settore immobiliare.
+            </p>
+            
+            <table>
+                <tr>
+                    <th>VERSIONE</th>
+                    <th>DESCRIZIONE</th>
+                    <th>COSTO</th>
+                </tr>
+                <tr>
+                    <td>BASE</td>
+                    <td>Gestione di 1 abitazione con annunci</td>
+                    <td>GRATUITO</td>
+                </tr>
+                <tr>
+                    <td>PROFESSIONALE 2 CASE</td>
+                    <td>Gestione di 2 abitazioni, zero annunci</td>
+                    <td>€ 2,44/mese</td>
+                </tr>
+                <tr>
+                    <td>PROFESSIONALE 3 CASE</td>
+                    <td>Gestione di 3 abitazioni, zero annunci</td>
+                    <td>€ 4,88/mese</td>
+                </tr>
+                <tr>
+                    <td>PROFESSIONALE 5 CASE</td>
+                    <td>Gestione di 5 abitazioni, zero annunci</td>
+                    <td>€ 9,76/mese</td>
+                </tr>
+                <tr>
+                    <td>ILLIMITATO</td>
+                    <td>Gestione illimitata abitazioni, zero annunci</td>
+                    <td>€ 19,99/mese</td>
+                </tr>
+            </table>
+            
+            <div class="highlight">
+                <strong>NOTE:</strong> I prezzi si intendono IVA inclusa. Pagamento annuale disponibile con sconto del 20%.
+            </div>
+            
+            <h1 id="servizi">SERVIZI OFFERTI</h1>
+            <ul style="margin-left: 30px; line-height: 2;">
+                <li><strong>Assistenza Tecnica:</strong> Supporto clienti disponibile dal lunedì al venerdì</li>
+                <li><strong>Aggiornamenti Software:</strong> Manutenzione e miglioramenti continui del prodotto</li>
+                <li><strong>Sicurezza Dati:</strong> Crittografia e backup cloud per la protezione delle informazioni</li>
+                <li><strong>Conformità GDPR:</strong> Rispetto delle normative sulla privacy europea</li>
+            </ul>
+            
+            <h1 id="contatti">CONTATTI AZIENDALI</h1>
+            <div class="contacts">
+                <div class="contact-item">
+                    <span class="contact-label">RAGIONE SOCIALE:</span> DOMESTIC MANAGER S.r.l.
+                </div>
+                <div class="contact-item">
+                    <span class="contact-label">SEDE LEGALE:</span> Italia
+                </div>
+                <div class="contact-item">
+                    <span class="contact-label">INDIRIZZO EMAIL:</span> support@domesticmanager.app
+                </div>
+                <div class="contact-item">
+                    <span class="contact-label">PEC:</span> domesticmanager@pec.it
+                </div>
+                <div class="contact-item">
+                    <span class="contact-label">PARTITA IVA:</span> [Da inserire]
+                </div>
+                <div class="contact-item">
+                    <span class="contact-label">CODICE FISCALE:</span> [Da inserire]
                 </div>
             </div>
             
-            <div class="section">
-                <h2>Contatti</h2>
-                <div class="contact-info">
-                    <div class="contact-item">
-                        <div class="contact-icon">📧</div>
-                        <span><strong>Email:</strong> support@domesticmanager.app</span>
-                    </div>
-                    <div class="contact-item">
-                        <div class="contact-icon">📍</div>
-                        <span><strong>Località:</strong> Italia</span>
-                    </div>
-                    <div class="contact-item">
-                        <div class="contact-icon">📱</div>
-                        <span><strong>App:</strong> Disponibile su Google Play Store</span>
-                    </div>
-                </div>
-            </div>
+            <p>
+                <strong>AVVERTENZA:</strong> Per informazioni commerciali e preventivi, si prega di contattare 
+                il nostro ufficio commerciale all'indirizzo email indicato.
+            </p>
             
-            <div class="section">
-                <h2>Privacy e Sicurezza</h2>
-                <p>
-                    La tua privacy è la nostra priorità. Tutti i tuoi dati sono protetti secondo il GDPR 
-                    e non vengono mai venduti a terzi. Per maggiori informazioni, consulta la nostra 
-                    <a href="https://github.com/il-tuo-utente/domestic-manager-privacy/blob/main/privacy.md" 
-                       style="color: #667eea; text-decoration: none; font-weight: bold;">
-                        Privacy Policy
-                    </a>.
-                </p>
-            </div>
+            <a href="https://play.google.com/store/apps/details?id=it.domesticmanager.app" class="app-badge">
+                SCARICA L'APPLICAZIONE SU GOOGLE PLAY
+            </a>
         </div>
         
+        <!-- Footer -->
         <footer>
-            <p>&copy; 2026 Domestic Manager. Tutti i diritti riservati.</p>
-            <p>Sviluppato con ❤️ in Italia</p>
+            <p><strong>DOMESTIC MANAGER S.r.l.</strong></p>
+            <p>Società a Responsabilità Limitata - Sede Legale: Italia</p>
+            <p>Tutti i diritti riservati © 2026</p>
+            <div class="copyright">
+                Questo sito web è proprietà esclusiva di DOMESTIC MANAGER S.r.l.<br>
+                È vietata la riproduzione anche parziale senza autorizzazione scritta.
+            </div>
         </footer>
     </div>
 </body>
